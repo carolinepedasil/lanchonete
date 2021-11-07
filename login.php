@@ -22,9 +22,12 @@
             $result = $stmt->fetchAll(); 
             $qtd_usuarios = count($result);
             if($qtd_usuarios == 1) {
-                echo "Usuário encontrado!";
+                // TODO substituir pelo redirecionamento...
+                $resultado["msg"] = "Usuário encontrado!";
+                $resultado["cod"] = 1;
             } else if($qtd_usuarios == 0) {
-                echo "Usuário não encontrado...";
+                $resultado["msg"] = "E-mail e senha não conferem.";
+                $resultado["cod"] = 0;
             }
         }
         catch(PDOException $e){
@@ -34,6 +37,6 @@
 
     }
 
-    include("index.html");
+    include("index.php");
 
 ?>
