@@ -14,13 +14,13 @@
             // echo "Conexão realizada com sucesso.";
 
             // 3. Verificar se email e senha estão no banco de dados
-            $stmt = $conn->prepare("SELECT codigo FROM usuario WHERE email=:email AND senha=md5(:senha)"); //md5 é para criptografar a senha
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-            $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
-            $stmt->execute();
+            $consulta = $conn->prepare("SELECT codigo FROM usuario WHERE email=:email AND senha=md5(:senha)"); //md5 é para criptografar a senha
+            $consulta->bindParam(':email', $email, PDO::PARAM_STR);
+            $consulta->bindParam(':senha', $senha, PDO::PARAM_STR);
+            $consulta->execute();
         
-            $result = $stmt->fetchAll(); 
-            $qtd_usuarios = count($result);
+            $r = $consulta->fetchAll(); 
+            $qtd_usuarios = count($r);
             if($qtd_usuarios == 1) {
                 // TODO substituir pelo redirecionamento...
                 $resultado["msg"] = "Usuário encontrado!";
