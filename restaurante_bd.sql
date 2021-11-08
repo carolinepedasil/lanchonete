@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 08-Nov-2021 às 19:09
+-- Tempo de geração: 08-Nov-2021 às 21:42
 -- Versão do servidor: 10.4.20-MariaDB
 -- versão do PHP: 8.0.9
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `restaurante_bd`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_pedido`
+--
+
+CREATE TABLE `item_pedido` (
+  `codigo` int(11) NOT NULL,
+  `nome_produto` varchar(100) DEFAULT NULL,
+  `quantidade` int(11) NOT NULL,
+  `preco_und` decimal(6,2) NOT NULL,
+  `observacao` varchar(200) DEFAULT NULL,
+  `cod_usuario` int(11) DEFAULT NULL,
+  `data_hora` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -49,6 +65,12 @@ INSERT INTO `usuario` (`codigo`, `nome`, `email`, `senha`, `data_registro`, `dat
 --
 
 --
+-- Índices para tabela `item_pedido`
+--
+ALTER TABLE `item_pedido`
+  ADD PRIMARY KEY (`codigo`);
+
+--
 -- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
@@ -57,6 +79,12 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `item_pedido`
+--
+ALTER TABLE `item_pedido`
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
