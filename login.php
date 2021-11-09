@@ -3,15 +3,9 @@
         // 1. Pegar os valores do formulário
         $email = $_POST["email"];
         $senha = $_POST["senha"];
-        // 2. Conexão com o banco de dados
-        $servename = "localhost";
-        $username = "root";
-        $password = ""; //não tem senha, por isso está vazio
 
         try {
-            $conn = new PDO("mysql:host=$servename;dbname=restaurante_bd", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Conexão realizada com sucesso.";
+            include("conexao_bd.php");
 
             // 3. Verificar se email e senha estão no banco de dados
             $consulta = $conn->prepare("SELECT codigo FROM usuario WHERE email=:email AND senha=md5(:senha)"); //md5 é para criptografar a senha
