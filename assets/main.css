@@ -1,0 +1,29 @@
+.redbutton {
+    color: white;
+    size: 12px;
+    background-color: red;
+}
+
+.bluebutton {
+    color: white;
+    size: 12px;
+    background-color: blue;
+}
+
+.graybutton {
+    color: white;
+    size: 12px;
+    background-color: darkgray;
+}
+
+.grupoMesmaLinha {
+    display: flex;
+}
+
+.tipoSelects {
+    width: 90% !important;
+}
+
+.addButton {
+    width: 10%;
+}
