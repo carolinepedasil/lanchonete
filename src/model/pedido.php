@@ -307,5 +307,6 @@ class Pedido
         $dados = $conexao->query($comandosql);
         return $dados;
     }
+    
 }
     

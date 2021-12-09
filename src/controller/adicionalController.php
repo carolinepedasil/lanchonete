@@ -20,10 +20,9 @@ if (isset($_GET['id'])) {
     if ($acao == 'excluir') {
         if ($objAdicional->excluirAdicional($conexao, $codigo))
             header("location:../view/index.php"); //redireciono para página inicial
-    }
-    elseif($acao == 'editar'){
+    } elseif ($acao == 'editar') {
         $dadoscodigo = $objAdicional->listarporCodigo($conexao, $codigo);
-        while($dadosAdicional=$dadoscodigo->fetch_object()){
+        while ($dadosAdicional = $dadoscodigo->fetch_object()) {
             //variaveis
             $codigo = $dadosAdicional->codigo;
             $descricao = $dadosAdicional->descricao;
@@ -31,15 +30,15 @@ if (isset($_GET['id'])) {
             $edicao = true;
         }
     }
-}elseif(isset($_POST['edicao'])){
+} elseif (isset($_POST['edicao'])) {
     echo 'chegou';
-        if($objAdicional->atualizarAdicional($conexao, $objAdicional)){
+    if ($objAdicional->atualizarAdicional($conexao, $objAdicional)) {
         header("location:../view/index.php");
-    }else{
+    } else {
         echo "Erro ao inserir!";
     }
-}elseif(isset($_POST['codigo'])){
-    if($objAdicional->inserirAdicional($conexao, $objAdicional)){
+} elseif (isset($_POST['codigo'])) {
+    if ($objAdicional->inserirAdicional($conexao, $objAdicional)) {
         header("location:../view/index.php");
     }
 }

@@ -25,5 +25,9 @@
 }
 
 .addButton {
-    width: 10%;
+    width: 50px !important;
+}
+
+input[name=addButton] {
+    width: 40px !important;
 }

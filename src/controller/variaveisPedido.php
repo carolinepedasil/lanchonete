@@ -1,5 +1,6 @@
 <?php
 
+
 $codigoPedido = isset($_POST['codigoPedido'])?$_POST['codigoPedido']:"";
 $nomePedido = isset($_POST['nomePedido'])?$_POST['nomePedido']:"";
 $lanchePedido = isset($_POST['lanchePedido'])?$_POST['lanchePedido']:"";
@@ -11,3 +12,4 @@ $adicionalListaPedido = isset($_POST['adicionalListaPedido'])?$_POST['adicionalL
 $dataPedido = isset($_POST['dataPedido'])?$_POST['dataPedido']:"";
 $observacoesPedido = isset($_POST['observacoesPedido'])?$_POST['observacoesPedido']:"";
 $totalPedido = isset($_POST['totalPedido'])?$_POST['totalPedido']:"";
+

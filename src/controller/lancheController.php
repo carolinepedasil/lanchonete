@@ -20,10 +20,9 @@ if (isset($_GET['id'])) {
     if ($acao == 'excluir') {
         if ($objLanche->excluirLanche($conexao, $codigo))
             header("location:../view/index.php"); //redireciono para página inicial
-    }
-    elseif($acao == 'editar'){
+    } elseif ($acao == 'editar') {
         $dadoscodigo = $objLanche->listarporCodigo($conexao, $codigo);
-        while($dadosLanche=$dadoscodigo->fetch_object()){
+        while ($dadosLanche = $dadoscodigo->fetch_object()) {
             //variaveis
             $codigo = $dadosLanche->codigo;
             $descricao = $dadosLanche->descricao;
@@ -31,15 +30,15 @@ if (isset($_GET['id'])) {
             $edicao = true;
         }
     }
-}elseif(isset($_POST['edicao'])){
+} elseif (isset($_POST['edicao'])) {
     echo 'chegou';
-        if($objLanche->atualizarLanche($conexao, $objLanche)){
+    if ($objLanche->atualizarLanche($conexao, $objLanche)) {
         header("location:../view/index.php");
-    }else{
+    } else {
         echo "Erro ao inserir!";
     }
-}elseif(isset($_POST['codigo'])){
-    if($objLanche->inserirLanche($conexao, $objLanche)){
+} elseif (isset($_POST['codigo'])) {
+    if ($objLanche->inserirLanche($conexao, $objLanche)) {
         header("location:../view/index.php");
     }
 }

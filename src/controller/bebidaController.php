@@ -20,10 +20,9 @@ if (isset($_GET['id'])) {
     if ($acao == 'excluir') {
         if ($objBebida->excluirBebida($conexao, $codigo))
             header("location:../view/index.php"); //redireciono para página inicial
-    }
-    elseif($acao == 'editar'){
+    } elseif ($acao == 'editar') {
         $dadoscodigo = $objBebida->listarporCodigo($conexao, $codigo);
-        while($dadosBebida=$dadoscodigo->fetch_object()){
+        while ($dadosBebida = $dadoscodigo->fetch_object()) {
             //variaveis
             $codigo = $dadosBebida->codigo;
             $descricao = $dadosBebida->descricao;
@@ -31,15 +30,15 @@ if (isset($_GET['id'])) {
             $edicao = true;
         }
     }
-}elseif(isset($_POST['edicao'])){
+} elseif (isset($_POST['edicao'])) {
     echo 'chegou';
-        if($objBebida->atualizarBebida($conexao, $objBebida)){
+    if ($objBebida->atualizarBebida($conexao, $objBebida)) {
         header("location:../view/index.php");
-    }else{
+    } else {
         echo "Erro ao inserir!";
     }
-}elseif(isset($_POST['codigo'])){
-    if($objBebida->inserirBebida($conexao, $objBebida)){
+} elseif (isset($_POST['codigo'])) {
+    if ($objBebida->inserirBebida($conexao, $objBebida)) {
         header("location:../view/index.php");
     }
 }

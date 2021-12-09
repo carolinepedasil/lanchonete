@@ -27,20 +27,16 @@ $pedido = $objPedido->listarTodos($conexao);
 // echo "ENV" . implode(',', $_ENV). "<br>";
 
 // if(isset($_POST['codigo'])){
-    
+
 //     if($objPedido->inserirPedido($conexao, $objPedido)){
 //         header("location:../view/index.php");
 //     }
 // }
 
-if(isset($_POST['botaoNovo'])){
-    $objPedido->setCodigoPedido(554);
-     $codigoPedido = 567;
-     header("location:../view/index.php");
-}
-
-elseif(isset($_POST['codigoPedido'])){
-    if($objPedido->inserirPedido($conexao, $objPedido)){
+if (isset($_POST['botaoNovo'])) {
+    header("location:../view/index.php?pagina=pedido&codigo=" . $objPedido->ultimoId($conexao));
+} elseif (isset($_POST['codigoPedido'])) {
+    if ($objPedido->inserirPedido($conexao, $objPedido)) {
         header("location:../view/index.php");
     }
 }
